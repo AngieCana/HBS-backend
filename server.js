@@ -11,6 +11,16 @@ app.get('/api/products', (req, res) => {
   res.send(data.products);
 })
 
+//will get the slug that user entered in the url
+app.get('/api/products/slug/:slug', (req, res) => {
+  const product = data.products.find((x) => x.slug === req.params.slug);
+  if (product) {
+    res.send(product);
+  } else {
+    res.status(404).send({ message: 'Product Not Found' });
+  }
+});
+
 //define the port that will be responding from the backend. if the first port does not work, it will default to 5000.
 const port = process.env.PORT || 5000;
 app.listen(port, () => {

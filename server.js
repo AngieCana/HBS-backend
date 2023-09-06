@@ -1,5 +1,4 @@
 import express from "express";
-import data from "./data.js";
 import "dotenv/config";
 import mongoose from "mongoose";
 import seedRouter from "./routes/seedRoute.js";
